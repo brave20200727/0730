@@ -35,6 +35,6 @@ app.get("/hello/:text", function (request, response) {
 app.post("/test", function (request, response) {
 	var firstName = request.body.firstName;
 	var lastName = request.body.lastName;
-	response.send(firstName + " " + lastName);
+	response.send(firstName + ", " + lastName);
 });
 

@@ -16,7 +16,7 @@
 
 <body>
     <div class="container">
-        <h2>AJAX Lab</h2>
+        <h2 id="heading">AJAX Lab<br></h2>
         <ul class="nav nav-tabs">
             <li class="active"><a href="#conceptTab">Concept</a></li>
             <li><a href="#getTab">GET</a></li>
@@ -126,27 +126,52 @@
 
 
             $("#getButton").on("click", function() {
-                var s = $("#nameTextBox").val();
-
-
-
-
-
-                $("#reportSpan").text(s);
-            })
+                // .val()與.prop("value")是一樣的意思
+                // var who = $("#nameTextBox").val();
+                var who = $("#nameTextBox").prop("value");
+                var receiveUrl = "/hello/" + who;
+                // $.get(getUrl, function(dataFromServer) {
+                //     $("#reportSpan").text(dataFromServer);
+                // });
+                $.ajax({
+                    type: "get",
+                    url: receiveUrl,
+                    success: function(dataFromServer) {
+                        $("#reportSpan").text(dataFromServer);
+                    }
+                });
+            });
 
 
 
             $("#postButton").on("click", function() {
                 var dataToServer = {
-                    firstName: $("#firstNameTextBox").val(),
-                    lastName: $("#lastNameTextBox").val()
+                    // 兩種寫法是一樣的意思
+                    firstName: $("#firstNameTextBox").prop("value"),
+                    lastName: $("#lastNameTextBox").prop("value")
+                    // firstName: $("#firstNameTextBox").val(),
+                    // lastName: $("#lastNameTextBox").val()
                 }
-
-
-
-
-                $("#resultSpan").text(JSON.stringify(dataToServer));
+                // $.post("/test", dataToServer, function(dataFromServer) {
+                //     $("#resultSpan").text(dataFromServer);
+                // })
+                // $.ajax({
+                //     type: "post", // post, get, put, delete
+                //     url: "http://localhost/test", // 也可以寫成"/test"代表同一資料夾
+                //     data: dataToServer
+                // }).then(function(dataFromServer) {
+                //     $("#resultSpan").text(dataFromServer);
+                // });
+                var sendUrl = "http://localhost/test"
+                $.ajax({
+                    type: "post", // post, get, put, delete
+                    url: sendUrl, // 也可以寫成"/test"代表同一資料夾
+                    contentType: "application/json", // 更改contentType讓server知道你傳的是json格式，因為預設是表單網址
+                    data: JSON.stringify(dataToServer),
+                    success: function(dataFromServer) {
+                        $("#resultSpan").text(dataFromServer);
+                    }
+                });
             })
 
 
