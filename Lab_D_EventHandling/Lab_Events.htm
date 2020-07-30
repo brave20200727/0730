@@ -4,7 +4,6 @@
     <meta charset="utf-8" />
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript">
-
         function console(obj)
         {
             $("#report").append(obj + "<br>");
@@ -12,14 +11,52 @@
 
         $(document).ready(function () {
             // 在這裏寫程式
-            
-            
-            
-            
-            
-            
-            
-            
+            // console.log(Date()); // 會顯示在browser的console裡面
+
+            // 以下的做法效果都是一樣的
+            // btnTry.onclick = function() {
+            //     console("OK");
+            // };
+            // $("#btnTry").click( function() {
+            //     console(Date());
+            // });
+            // $("#btnTry").on("click", function() {
+            //     console("btnTry clicked");
+            // });
+            $("#btnTry").click(
+                function() {
+                    console("btnTry clicked");
+                }
+            );
+
+            $("#btnOff").click(
+                function() {
+                    $("#panda").off("mouseover");
+                    $("#panda").off("mouseout");
+                }
+            );
+
+            $("#btnOn").click(
+                function() {
+                    $("#panda").on({
+                        "mouseover": function() {
+                        $("#panda").prop("src", "panda2.jpg");
+                        console("mouse enter image");
+                        },
+                        "mouseout": function() {
+                        $("#panda").prop("src", "panda1.jpg");
+                        console("mouse leave image");
+                        }
+                    });
+                }
+            );
+
+            $("#report").on(
+                "click",
+                function() {
+                    $("#report").html("Report:<br>");
+                }
+            );
         });
     </script>
 </head>
@@ -32,6 +69,7 @@
 <form action="" method="put" onsubmit="return false;">
   <button type="button" id="btnTry">Try</button>
   <button type="button" id="btnOff">Off</button>
+  <button type="button" id="btnOn">On</button>
 </form>
 </body>
 </html>
