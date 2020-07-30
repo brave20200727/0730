@@ -7,16 +7,27 @@
         $(document).ready(function () {
             $("#btnTry").click(function () {
                 // 在這裏寫程式
-                
-                
-                
-                
-                
-                
+
+                // $("#report")
+                //   .css("font-size", "1.5em")
+                //   .css("font-style", "italic");
+                // $("#report").css({
+                //   "font-size": "2em",
+                //   "font-style": "italic"
+                // })
+
+                $("#betaRibbon").addClass("beta-ribbon"); // 在betaRibbon這個元素中的class加入beta-ribbon
+                // $("#betaRibbon").removeClass("beta-ribbon"); // 在betaRibbon這個元素中的class移除beta-ribbon
+                // $("#betaRibbon").toggleClass("beta-ribbon"); // 在betaRibbon這個元素中的class如果有beta-ribbon，那就移除，如果沒有就加上去
+
+                $("#betaRibbon").css({
+                  "font-family": "Arial",
+                  "font-size": "1.2em"
+                });
             })
         });
     </script>
-
+    <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
 
