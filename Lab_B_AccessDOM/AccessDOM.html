@@ -9,26 +9,26 @@
               // 在這裏寫程式
               // $("#selector").action();
 
-              /* 同時會是getter也是setter，如果傳入參數就會以傳入參數去做動作就有點像setter，
-              如果沒有傳入參數，那就會傳回一個回傳值就有點像getter */
-              /* var x = $("#report").text();
-              alert(x); */
+              // 同時會是getter也是setter，如果傳入參數就會以傳入參數去做動作就有點像setter，
+              // 如果沒有傳入參數，那就會傳回一個回傳值就有點像getter
+              // var x = $("#report").text();
+              // alert(x);
 
               // report元素中的<br>依然會顯示出來
-              var x = $("#report").html();
-              alert(x);
+              // var x = $("#report").html();
+              // alert(x);
 
               // 將html()中傳入的參數作為html解讀
               // $("#report").html("Line1<br>Line2");
               
               // append()是將傳入的參數值接在尾巴，並且基本上解讀為html
-              // $("#report").append("line1<br>Line2");
+              // $("#report").append("Line1<br>Line2");
               // $("#report").prepend("Line1<br>Line2<br>");
 
               // 使用prop與attr是一樣的意思，都是修改屬性值，但prop問題較少，盡量使用prop
               // $("#aTextField").prop("value", "123"); 
-              /* var x = $("#aTextField").prop("value");
-              alert(x); */
+              // var x = $("#aTextField").prop("value");
+              // alert(x);
 
               // name為radioGroup的input的元素
               /* var s = $("input[name='radioGroup']").eq(2).prop("checked", "checked");
@@ -47,7 +47,7 @@
 <form action="" method="put" onsubmit="return false;">
   <!-- 加上value就會有預設顯示值 -->
   <div>
-    <label>Text:</label> <input type="text" value="ABC "id="aTextField" name="someTextField"/>
+    <label>Text:</label> <input type="text" placeholder="請輸入" id="aTextField" name="someTextField"/>
   </div>
   <div>
     <label>Radio group:</label>
